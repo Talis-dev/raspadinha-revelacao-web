@@ -22,6 +22,12 @@ Quando `sexo` é `menino`, o nome do bebê aparece em azul; quando é `menina`, 
 
 Na pasta do projeto, execute `python -m http.server 8010 --bind 127.0.0.1` e abra `http://127.0.0.1:8010` no navegador. Também é possível abrir `index.html` diretamente.
 
+## Publicar no GitHub Pages
+
+O workflow em [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) valida o JavaScript e publica o site após cada push na branch `main`. A primeira publicação exige uma configuração no repositório do GitHub: **Settings → Pages → Build and deployment → Source → GitHub Actions**. Depois, faça um push para `main` ou execute o workflow manualmente em **Actions**.
+
+O endereço esperado é `https://talis-dev.github.io/raspadinha-revelacao-web/`. Confirme o endereço exibido pelo GitHub quando a publicação terminar. Como o repositório e o site são públicos, o conteúdo de `config.js`, inclusive o sexo do bebê, pode ser visto no código-fonte antes da raspagem.
+
 Funciona com toque, mouse e caneta. Para usar teclado, foque um círculo e pressione Enter ou Espaço. O botão **Ver novamente** reinicia a experiência.
 
 A melodia de fundo começa após o primeiro toque no envelope, conforme a política de áudio dos navegadores. Ela tem quatro frases suaves em estilo de canção de ninar e se repete enquanto a página está aberta. O botão com a nota musical pausa ou retoma o som. O efeito de raspagem toca enquanto o usuário esfrega os círculos. Ambos são sintetizados no navegador com Web Audio, sem baixar um arquivo de música.
