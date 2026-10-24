@@ -7,21 +7,25 @@ if (configuredSex && configuredSex !== 'menino' && configuredSex !== 'menina') {
 const config = {
   nomeMae: nameOrFallback(rawConfig.nomeMae, 'Ana'),
   nomePai: nameOrFallback(rawConfig.nomePai, 'Vinícius'),
-  nomeBebe: nameOrFallback(rawConfig.nomeBebe, 'Miguel'),
+  nomeBebe: typeof rawConfig.nomeBebe === 'string' ? rawConfig.nomeBebe.trim() : '',
   sexo: configuredSex === 'menina' ? 'menina' : 'menino',
   nomeAlternativo: nameOrFallback(rawConfig.nomeAlternativo, configuredSex === 'menina' ? 'Miguel' : 'Maria'),
 };
 const isGirl = config.sexo === 'menina';
+const hasBabyName = Boolean(config.nomeBebe);
 const upper = (value) => value.toLocaleUpperCase('pt-BR');
-const girlName = isGirl ? config.nomeBebe : config.nomeAlternativo;
-const boyName = isGirl ? config.nomeAlternativo : config.nomeBebe;
+const girlName = hasBabyName ? (isGirl ? config.nomeBebe : config.nomeAlternativo) : 'Menina';
+const boyName = hasBabyName ? (isGirl ? config.nomeAlternativo : config.nomeBebe) : 'Menino';
 document.getElementById('parents-line').textContent = `MAMÃE ${upper(config.nomeMae)} E PAPAI ${upper(config.nomePai)} ESTÃO`;
 document.getElementById('girl-name').textContent = upper(girlName);
 document.getElementById('boy-name').textContent = upper(boyName);
-document.getElementById('reveal-sex').textContent = `É ${config.sexo}!`;
+document.getElementById('reveal-sex').textContent = hasBabyName ? `É ${config.sexo}!` : `É ${upper(config.sexo)}!`;
 document.getElementById('reveal-name').textContent = upper(config.nomeBebe);
-document.getElementById('reveal').setAttribute('aria-label', `Revelação: é ${config.sexo}, ${config.nomeBebe}`);
+document.getElementById('reveal-name').hidden = !hasBabyName;
+document.querySelector('.reveal-coming').hidden = !hasBabyName;
+document.getElementById('reveal').setAttribute('aria-label', `Revelação: é ${config.sexo}${hasBabyName ? `, ${config.nomeBebe}` : ''}`);
 document.getElementById('reveal').classList.toggle('is-girl', isGirl);
+document.getElementById('reveal').classList.toggle('is-sex-only', !hasBabyName);
 for (const id of ['girl-name', 'boy-name', 'reveal-name']) {
   const element = document.getElementById(id);
   element.classList.toggle('is-long', element.textContent.length > 9);

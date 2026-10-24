@@ -211,6 +211,13 @@ button:focus-visible, canvas:focus-visible { outline: 3px solid #5599c4; outline
 .reveal-copy h2 { margin: clamp(24px, 5dvh, 50px) 0 0; font-family: "Cormorant Garamond", Georgia, serif; font-size: clamp(57px, 17vw, 79px); font-weight: 500; letter-spacing: .025em; line-height: 1; }
 .reveal-copy h2 { overflow-wrap: anywhere; text-wrap: balance; padding-inline: 7px; }
 .reveal-copy h2.is-long { font-size: clamp(45px, 12vw, 64px); }
+.scene--reveal.is-sex-only .reveal-copy { margin-top: auto; padding-top: clamp(40px, 7dvh, 80px); }
+.scene--reveal.is-sex-only .reveal-script {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(72px, 20vw, 94px); font-weight: 600; line-height: .95;
+  letter-spacing: -.025em; text-shadow: 0 4px 12px #7eabc75c;
+}
+.scene--reveal.is-sex-only.is-girl .reveal-script { text-shadow: 0 4px 12px #d9a6bd70; }
 .scene--reveal.is-girl { background: linear-gradient(#fff3f8a3, #fce9f29c), url("assets/watercolor-background.webp") center center / cover no-repeat, #fff8fb; }
 .scene--reveal.is-girl .reveal-arch { border-color: #d9a6bd; }
 .scene--reveal.is-girl .reveal-copy { color: #b7658b; }

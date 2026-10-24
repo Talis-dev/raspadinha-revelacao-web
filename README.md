@@ -16,7 +16,7 @@ window.REVEAL_CONFIG = {
 };
 ```
 
-Quando `sexo` é `menino`, o nome do bebê aparece em azul; quando é `menina`, aparece em rosa. Se `nomeAlternativo` ficar vazio, o outro nome será Maria ou Miguel, conforme o caso. Esses valores são públicos para qualquer pessoa que veja o repositório ou o código da página, então não coloque informações sigilosas nesse arquivo.
+Quando `sexo` é `menino`, o nome do bebê aparece em azul; quando é `menina`, aparece em rosa. Se `nomeBebe` ficar vazio (`''`), a raspadinha mostra apenas **MENINA OU MENINO** e a tela final destaca somente o sexo, sem nome. Com um nome preenchido, `nomeAlternativo` pode ficar vazio para usar Maria ou Miguel como a outra opção. Esses valores são públicos para qualquer pessoa que veja o repositório ou o código da página, então não coloque informações sigilosas nesse arquivo.
 
 ## Abrir localmente
 
