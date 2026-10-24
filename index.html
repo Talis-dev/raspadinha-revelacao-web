@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f7f2f5" />
+    <meta name="description" content="Um convite especial: raspe os círculos e descubra quem está chegando!" />
+    <title>Uma surpresa especial | Chá revelação</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&family=Italiana&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="invitation" id="app">
+      <button class="sound-toggle" id="sound-toggle" type="button" aria-label="Ativar música de fundo" aria-pressed="false" title="Ativar música de fundo"><span aria-hidden="true">♫</span></button>
+      <section class="scene scene--intro is-active" id="intro" aria-label="Convite surpresa">
+        <div class="pastel-stars" aria-hidden="true">
+          <span class="star star--a">✦</span><span class="star star--b">✦</span>
+          <span class="star star--c">✧</span><span class="star star--d">✦</span>
+          <span class="star star--e">✧</span><span class="star star--f">✦</span>
+        </div>
+        <div class="intro-content">
+          <svg class="ribbon ribbon--ivory" viewBox="0 0 300 176" fill="none" aria-hidden="true">
+            <defs><linearGradient id="bow-ivory" x1="25" y1="0" x2="250" y2="150"><stop stop-color="#fffdf8"/><stop offset=".48" stop-color="#d9c9c0"/><stop offset="1" stop-color="#f5eee9"/></linearGradient></defs>
+            <path d="M145 82C106 50 61 18 40 37c-19 17-6 47 20 51 34 5 60-1 85-6Z" fill="url(#bow-ivory)" stroke="#c6b4aa" stroke-width="2"/>
+            <path d="M154 82c39-32 84-64 105-45 19 17 6 47-20 51-34 5-60-1-85-6Z" fill="url(#bow-ivory)" stroke="#c6b4aa" stroke-width="2"/>
+            <path d="M130 90 89 156l42-14 17 23 10-74Z" fill="url(#bow-ivory)" stroke="#c6b4aa" stroke-width="2"/>
+            <path d="m170 90 41 66-42-14-17 23-10-74Z" fill="url(#bow-ivory)" stroke="#c6b4aa" stroke-width="2"/>
+            <path d="M136 67c8 7 20 7 28 0l7 24c-11 9-31 9-42 0l7-24Z" fill="url(#bow-ivory)" stroke="#b7a49b" stroke-width="2"/>
+            <path d="M48 40c22 7 51 30 78 42m126-42c-22 7-51 30-78 42" stroke="#fff" stroke-opacity=".5" stroke-width="3"/>
+          </svg>
+
+          <button class="envelope-button" id="open-envelope" type="button" aria-label="Abrir o envelope e descobrir um segredo">
+            <img class="envelope-lamb" src="assets/lamb-open.webp" alt="Ovelhinha saindo de um envelope" />
+            <span class="envelope-back"></span>
+            <span class="envelope-front"></span>
+            <span class="envelope-flap"></span>
+            <span class="envelope-heart" aria-hidden="true">♥</span>
+          </button>
+          <p class="intro-hint">CLIQUE NO ENVELOPE E<br />DESCUBRA UM SEGREDO</p>
+        </div>
+      </section>
+
+      <section class="scene scene--letter" id="letter" aria-label="Mensagem do convite" hidden>
+        <div class="pastel-stars" aria-hidden="true">
+          <span class="star star--a">✦</span><span class="star star--b">✦</span>
+          <span class="star star--c">✧</span><span class="star star--d">✦</span>
+          <span class="star star--e">✧</span><span class="star star--f">✦</span>
+        </div>
+        <div class="letter-content">
+          <p class="letter-script letter-script--large">Jesus,</p>
+          <p class="letter-script">um pastor muito bondoso,</p>
+          <p class="letter-serif">me fez uma linda ovelhinha<br />do seu rebanho precioso.</p>
+          <p class="letter-caps">PAPAI E MAMÃE ESTÃO<br />SUPER FELIZES COM A MINHA<br />CHEGADA</p>
+          <p class="letter-script letter-script--share">e querem compartilhar com você...</p>
+          <p class="letter-question"><span>MENINA</span> OU <span>MENINO?</span></p>
+          <p class="letter-serif letter-serif--small">continue e descubra quem está<br />chegando para completar nossa família.</p>
+          <button class="continue-button" id="continue" type="button">CLIQUE AQUI<br />PARA CONTINUAR</button>
+          <img class="letter-lamb" src="assets/lamb-open.webp" alt="Ovelhinha sentada" />
+        </div>
+      </section>
+
+      <section class="scene scene--scratch" id="scratch" aria-label="Raspadinha revelação" hidden>
+        <div class="pastel-stars" aria-hidden="true">
+          <span class="star star--a">✦</span><span class="star star--b">✦</span>
+          <span class="star star--c">✧</span><span class="star star--d">✦</span>
+          <span class="star star--e">✧</span><span class="star star--f">✦</span>
+        </div>
+        <div class="scratch-content">
+          <p class="scratch-eyebrow"><span id="parents-line"></span><br />ANSIOSOS PARA COMPARTILHAR COM VOCÊ<br />SE SOU...</p>
+          <h1 class="name-choice"><span class="name-choice--pink" id="girl-name"></span><span class="name-choice--or">OU</span><span class="name-choice--blue" id="boy-name"></span></h1>
+          <p class="scratch-instruction">RASPE OS CÍRCULOS, ENCONTRE A<br />SEQUÊNCIA DE 3 E DESCUBRA</p>
+          <div class="scratch-grid" id="scratch-grid" aria-label="Nove círculos para raspar"></div>
+          <img class="scratch-lamb" src="assets/lamb-open.webp" alt="" aria-hidden="true" />
+          <p class="sr-only" id="scratch-status" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <section class="scene scene--reveal" id="reveal" aria-label="Revelação" hidden>
+        <div class="reveal-arch">
+          <svg class="ribbon ribbon--blue" viewBox="0 0 300 176" fill="none" aria-hidden="true">
+            <defs><linearGradient id="bow-blue" x1="25" y1="0" x2="250" y2="150"><stop stop-color="#dcecf6"/><stop offset=".5" stop-color="#8db6d0"/><stop offset="1" stop-color="#d3e6f1"/></linearGradient></defs>
+            <path d="M145 82C106 50 61 18 40 37c-19 17-6 47 20 51 34 5 60-1 85-6Z" fill="url(#bow-blue)" stroke="#6d97b0" stroke-width="2"/>
+            <path d="M154 82c39-32 84-64 105-45 19 17 6 47-20 51-34 5-60-1-85-6Z" fill="url(#bow-blue)" stroke="#6d97b0" stroke-width="2"/>
+            <path d="M130 90 89 156l42-14 17 23 10-74Z" fill="url(#bow-blue)" stroke="#6d97b0" stroke-width="2"/>
+            <path d="m170 90 41 66-42-14-17 23-10-74Z" fill="url(#bow-blue)" stroke="#6d97b0" stroke-width="2"/>
+            <path d="M136 67c8 7 20 7 28 0l7 24c-11 9-31 9-42 0l7-24Z" fill="url(#bow-blue)" stroke="#6d97b0" stroke-width="2"/>
+            <path d="M48 40c22 7 51 30 78 42m126-42c-22 7-51 30-78 42" stroke="#fff" stroke-opacity=".55" stroke-width="3"/>
+          </svg>
+          <span class="hanging-star hanging-star--left" aria-hidden="true">✦</span>
+          <span class="hanging-star hanging-star--right" aria-hidden="true">✦</span>
+          <span class="hanging-star hanging-star--left-low" aria-hidden="true">✦</span>
+          <span class="hanging-star hanging-star--right-low" aria-hidden="true">✦</span>
+          <div class="reveal-copy">
+            <p class="reveal-script" id="reveal-sex"></p>
+            <div class="reveal-flourish" aria-hidden="true"><span></span>♥<span></span></div>
+            <h2 id="reveal-name"></h2>
+            <p class="reveal-coming">Vem aí</p>
+          </div>
+          <img class="reveal-lamb" src="assets/lamb-cloud.webp" alt="Ovelhinha sorridente sobre uma nuvem" />
+        </div>
+        <button class="restart-button" id="restart" type="button">Ver novamente</button>
+      </section>
+    </main>
+    <script src="config.js" defer></script>
+    <script src="script.js" defer></script>
+  </body>
+</html>
