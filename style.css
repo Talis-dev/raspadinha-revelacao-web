@@ -182,7 +182,14 @@ button:focus-visible, canvas:focus-visible { outline: 3px solid #5599c4; outline
 .scratch-cell.is-revealed .scratch-heart { animation: pop .45s ease both; }
 .scratch-cell.is-winning .scratch-heart { filter: drop-shadow(0 0 9px #6dbceba8); }
 @keyframes pop { from { transform: scale(.7); opacity: .3; } to { transform: scale(1); opacity: 1; } }
-.scratch-lamb { position: absolute; width: min(30vw, 145px); right: 2%; bottom: 1.5%; z-index: 3; pointer-events: none; }
+.scratch-lamb {
+  position: absolute; width: min(30vw, 145px); right: 2%; bottom: 1.5%; z-index: 3;
+  padding: 0; border: 0; background: transparent; cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform .65s ease-in-out, opacity .65s ease-in-out;
+}
+.scratch-lamb img { display: block; width: 100%; }
+.scratch-lamb.is-away { transform: translateX(calc(100% + 20px)); opacity: 0; pointer-events: none; }
 
 .scene--reveal {
   display: flex; flex-direction: column; align-items: center; justify-content: center;

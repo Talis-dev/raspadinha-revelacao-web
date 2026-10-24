@@ -30,6 +30,7 @@ for (const id of ['girl-name', 'boy-name', 'reveal-name']) {
 const scenes = [...document.querySelectorAll('.scene')];
 const grid = document.getElementById('scratch-grid');
 const status = document.getElementById('scratch-status');
+const scratchLamb = document.getElementById('move-scratch-lamb');
 const boySequence = ['pink', 'pink', 'blue', 'blue', 'pink', 'blue', 'pink', 'blue', 'blue'];
 const sequence = isGirl ? boySequence.map((color) => color === 'blue' ? 'pink' : 'blue') : boySequence;
 const winningLine = [2, 5, 8];
@@ -331,6 +332,9 @@ function setupScratch() {
   clearTimeout(revealTimer);
   revealTimer = undefined;
   revealed.clear();
+  scratchLamb.classList.remove('is-away');
+  scratchLamb.removeAttribute('aria-hidden');
+  scratchLamb.tabIndex = 0;
   status.textContent = 'Raspe os círculos e encontre a sequência de três.';
   grid.replaceChildren(...sequence.map(makeCell));
   grid.querySelectorAll('canvas').forEach(paintCover);
@@ -341,6 +345,12 @@ document.getElementById('open-envelope').addEventListener('click', () => {
   showScene('letter');
 });
 document.getElementById('continue').addEventListener('click', () => showScene('scratch'));
+scratchLamb.addEventListener('click', () => {
+  scratchLamb.classList.add('is-away');
+  scratchLamb.setAttribute('aria-hidden', 'true');
+  scratchLamb.tabIndex = -1;
+  scratchLamb.blur();
+});
 document.getElementById('restart').addEventListener('click', () => showScene('intro'));
 soundToggle.addEventListener('click', () => {
   if (soundEnabled) {
